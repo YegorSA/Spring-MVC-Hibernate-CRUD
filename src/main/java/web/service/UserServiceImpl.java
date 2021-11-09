@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
     @PostConstruct
     public void firstLoad(){
         if (userDaoImpl.findAll().isEmpty()) {
-            String defaultFirstname = "Ivan";
-            String defaultLastname = "Ivanov";
+            String defaultFirstname = "Иван";
+            String defaultLastname = "Иванов";
             String defaultEmail = "ivan007@mail.ru";
             User defaultUser = new User(defaultFirstname, defaultLastname, defaultEmail);
             userDaoImpl.create(defaultUser);
