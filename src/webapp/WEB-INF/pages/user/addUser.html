@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an User</title>
+</head>
+<body>
+<h1>Create a User"</h1>
+
+<a th:href="@{/users}">Back to User List</a>
+
+<br/><br/>
+
+<form method="POST" th:object="${user}" th:action="@{/users/create}">
+
+    <label for="firstname">Enter name:</label>
+    <input type="text" th:field="*{firstname}" id="firstname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Name Error</div>
+
+    <br/>
+
+    <label for="lastname">Enter lastname:</label>
+    <input type="text" th:field="*{lastname}" id="lastname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Lastname Error</div>
+
+    <br/>
+
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+
+    <br/>
+
+    <input type="submit" value="Create an User"/>
+</form>
+
+<!--<form th:action="@{/users/create}"
+      th:method="POST" th:object="${user}">
+    <table>
+        <tr th:if="${user.getId()}">
+            <td>ID</td>
+            <td>:</td>
+            <td th:utext="${user.getId()}">...</td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>:</td>
+            <td><label>
+                <input type="text" th:field="*{firstName}" />
+            </label></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>:</td>
+            <td><label>
+                <input type="text" th:field="*{lastName}" />
+            </label></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td><label>
+                <input type="text" th:field="*{email}" />
+            </label></td>
+        </tr>
+    </table>
+    <input type="submit" th:value="Create" />
+</form>-->
+
+</body>
+</html>
